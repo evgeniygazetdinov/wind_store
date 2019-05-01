@@ -1,4 +1,4 @@
-"""shop URL Configuration
+"""shop URL Configurgtion
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -19,7 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/',views.products_list,name = 'product_list')
-    path()
-    path(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$',views.product_datail)
+    path('list/',views.show_product_list,name = 'products'),
+    path(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$',views.priticilar_product,)
 ]

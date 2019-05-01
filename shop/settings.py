@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'shop',
     'products',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,6 +52,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'shop.urls'
+#TEMPLATE_DIR =  os.path.join(os.path.dirname(__file__) ,'../templates').replace('\\','/')
 
 TEMPLATES = [
     {

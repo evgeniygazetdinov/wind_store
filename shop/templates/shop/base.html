@@ -11,11 +11,16 @@
           <body>
                 <nav aria-label="breadcrumb">
                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Library</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'products' %}">ibrary</a></li>
                         <li class="breadcrumb-item" ><a href="#">Data</a></li>
                       </ol>
                 </nav>
-            <i class="fa fa-facebook"></i>
+                        {%block main_path%}
+                
+                        {{name}}
+                            {%endblock%}
+                </div>
+
           </body>
 </html>
