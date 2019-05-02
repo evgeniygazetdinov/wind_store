@@ -7,7 +7,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      </head>
+  <title>
+      {% block title %}
+      {%  endblock %}
+  </title>
+  </head>
           <body>
                 <nav aria-label="breadcrumb">
                      <ol class="breadcrumb">
@@ -16,11 +20,17 @@
                         <li class="breadcrumb-item" ><a href="#">Data</a></li>
                       </ol>
                 </nav>
-                        {%block main_path%}
+
                 
+                
+               <div class="container">                       
+                   <div class="m-5 p-4">
+                       {%block main_path%}
                         {{name}}
                             {%endblock%}
                 </div>
+               </div>
+
 
           </body>
 </html>
