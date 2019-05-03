@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,get_object_or_404
 from .models import Category
 from .models import Luggage as Products
 
@@ -16,10 +16,8 @@ def show_product_list(request,category_slug = None):
                                                             'products':products})
 
 def priticilar_product(request,id,slug):
-    product = get_object_404(Products,id = id ,slug = slug,available = True)
-    cart_product_form = CartAddProductFrom()
-    return render(request,'templates/products/product.html',{'product':product,
-                                                             'cart_product_from':cart_product_from})
+    product = get_object_or_404(Products,id = id ,slug = slug,available = True)
+    return render(request,'products/product.html',{'product':product})
 
 def check(request):
     return HttpResponse("return this string")
