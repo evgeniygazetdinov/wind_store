@@ -1,4 +1,4 @@
-{% extend "/templates/shop/base.html" %}
+{% extends "shop/base.html" %}
     {% load static %}
         {% block title %}
             {{product.name}}
@@ -6,14 +6,11 @@
         {%block main_path %}
         <div class="product_detail">        
             <div class="container">
-                <img src="{% if product.image %}{{product.image.url}}{{% else %}} {% static %}"/products/img/default.jpg alt="">
+                <img src="{% if product.image %}{{product.image.url}}{% else %}{% static "products/img/default.jpg" %}{% endif %}alt="">
                 <p class="price">${{product.price}}</p>
-                <form action="{% url'cart:card:add' product.id%}"method = "post">
-                    {{cart_prodict_from}}
-                    {% csrf token %}
                     <input type="submit" value = "Добавить в корзину">
                 </form>
                 {{product.description|linebreaks}}
             </div>
         </div>
-
+        {% endblock main_path %}
