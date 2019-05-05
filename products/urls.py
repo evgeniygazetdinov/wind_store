@@ -19,7 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/',views.products_list,name = 'product_list')
-    path()
+    path('',views.products_list,name = 'product_list')
     path(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$',views.product_datail)
 ]

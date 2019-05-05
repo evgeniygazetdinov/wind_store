@@ -15,7 +15,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:product detail',args = [self.slug])
+        return ('/category/{}'.format(self.slug))
 
 
 
@@ -26,7 +26,7 @@ class Luggage(models.Model):
     category = models.ForeignKey(Category,related_name='категория',on_delete=models.CASCADE)
     name = models.CharField(max_length =200,db_index = True)
     slug = models.SlugField(max_length =200,db_index = True)
-    image = models.ImageField(upload_to = 'products/%Y/%m/%d',blank =True)
+    image = models.ImageField(default = 'default.jpg',upload_to = '',blank =True)
     description = models.TextField(blank= True)
     price = models.DecimalField(max_digits = 10,decimal_places=2)
     stock = models.PositiveIntegerField()
@@ -43,4 +43,5 @@ class Luggage(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:product detail',args = [self.id,self.slug])
+        return reverse('products',kwargs = {'id':self.id,
+                                            'slug':self.slug})
