@@ -1,1 +1,29 @@
-{%extend 'shop/templates/shop/base.html'%}
+{% extends "shop/base.html"%}
+{% block title %}
+{{title}}
+{% endblock title %}
+{% block main_path%}
+<div class="mx-auto w-25">    
+<p>available products</p>
+</div>
+
+    {% for product in products %}
+            <div class="mt-4">
+                    категория 
+                    <b>{{product.category}}</b>
+                <div class="product">                    {{product.name}}
+                </div>
+            </div>
+                  <div class="logo">
+                        <img class="s" src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Genesis_P-Orridge_with_Throbbing_Gristle.jpg``" >
+                           </div>
+                <div class="mr-4">
+                    {{product.price}}
+
+                </div>
+                <a href="£"  target = _blank
+                    <button class="btn btn-warning">подробнее</button>
+                </a>
+                <hr>
+                        {% endfor %}
+{% endblock main_path %}
