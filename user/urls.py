@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
-from django.conf import settings
 from django.conf.urls.static import static
+from django.conf import settings
+
+
+
 
 urlpatterns = [
-    path('list/',views.show_product_list,name = 'list'),
-    path(r'^list/(?P<id>/?P<slug>/',views.priticilar_product,name = 'products')
+    path('profile/',views.show_user_profile,name = 'profile'),
+    path(r'^profile/?P<username>/?<current_bought>/',views.show_current_bought,name = 'bought'),
+    path('reg/',views.register,name = 'reg')
 ]
-#if settings.DEBUG:
-#   urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+if settings.DEBUG:
+     urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

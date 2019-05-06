@@ -1,4 +1,5 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -12,13 +13,20 @@
       {%  endblock %}
   </title>
   </head>
+  
           <body>
                 <nav aria-label="breadcrumb">
                      <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                         <li class="breadcrumb-item" ><a href="#">Data</a></li>
                         <li class="breadcrumb-item" ><a href="{% url 'list' %}">all</a></li>
-                      </ol>
+                            <div class="container">                       
+                                    <div class="mr-3">
+                                <li class='breadcrumb-item-float-right ' ><a href="{% url 'reg' %}">registation</a></li>
+                                        <li class='breadcrumb-item-float-right ' ><a href="{% url 'reg' %}">log out</a></li>
+                                    </div>     
+                                  </div>
+                    </ol>
                 </nav>
 
                 
@@ -27,8 +35,9 @@
                    <div class="m-5 p-4">
                        {%block main_path%}
                         {{name}}
+                            <img src="{% static '/static_pic/shop/1.jpg'%}" alt="">
                             {%endblock%}
-                </div>
+                   </div>
                </div>
 
 

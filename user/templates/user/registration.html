@@ -1,0 +1,15 @@
+{% extends "shop/base.html"%}
+    {% block title %}
+        {{title}}
+    {% endblock title %}
+    {% block main_path%}
+    <div class="form_reg">    
+        <form method="post">
+            {% csrf_token%}
+            {{form.as_p}}
+            <button type= submit class = regist_button> зарегистрироваться</button>
+         </form>
+    </div>
+
+{% endblock main_path %}
+
