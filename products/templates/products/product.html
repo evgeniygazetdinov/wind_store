@@ -4,9 +4,10 @@
             {{product.name}}
         {% endblock %}
         {%block main_path %}
-        <div class="product_detail">        
+        <form>
+                <div class="product_detail">
             <div class="container">
-                <img src="{% if product.image %}{{product.image.url}}{% else %}{% static "products/img/default.jpg" %}{% endif %}alt="">
+                <img src="{% if product.image %}{{product.image.url}}{% else %}{% static "shop/1.jpg" %}{% endif %}alt="">
                 <p class="price">${{product.price}}</p>
                     <input type="submit" value = "Добавить в корзину">
                 </form>
