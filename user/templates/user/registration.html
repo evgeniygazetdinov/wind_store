@@ -1,14 +1,22 @@
+<head>
+
+</head>
 {% extends "shop/base.html"%}
-    {% block title %}
+{% load crispy_forms_tags %}
+
+{% block title %}
         {{title}}
     {% endblock title %}
     {% block main_path%}
-    <div class="form_reg">    
-        <form method="post">
+        <div class="mx-auto" style="width: 200px;">
+           <h5>регистрация нового пользователя</h5>
+    </div>
+     <div class="form-section">    
+        <form method="POST">
             {% csrf_token%}
-            {{form.as_p}}
+            {{form|crispy}}
             <button type= submit class = regist_button> зарегистрироваться</button>
-         </form>
+        </form>
     </div>
 
 {% endblock main_path %}

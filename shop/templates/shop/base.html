@@ -1,41 +1,56 @@
 <!doctype html>
 {% load static %}
+{% load staticfiles %}
 <html lang="en">
   <head>
+      <script src="http://userapi.com/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <title>
+        <link rel=”stylesheet” href=”{% static 'shop/main.css' %}”>
+    <title>
       {% block title %}
       {%  endblock %}
   </title>
   </head>
   
           <body>
-                <nav aria-label="breadcrumb">
+              <div class="container"> 
+                  <nav aria-label="breadcrumb">
                      <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                         <li class="breadcrumb-item" ><a href="#">Data</a></li>
                         <li class="breadcrumb-item" ><a href="{% url 'list' %}">all</a></li>
-                            <div class="container">                       
-                                    <div class="mr-3">
-                                <li class='breadcrumb-item-float-right ' ><a href="{% url 'reg' %}">registation</a></li>
+                       <div class="col-md-8">
+                                <li class='breadcrumb-item-float-right-col-md-8-mr-5 ' ><a href="{% url 'reg' %}">registation</a></li>
                                         <li class='breadcrumb-item-float-right ' ><a href="{% url 'reg' %}">log out</a></li>
                                     </div>     
                                   </div>
+                                  </div>
                     </ol>
-                </nav>
+                    </nav>
+                </div>
 
                 
                 
                <div class="container">                       
-                   <div class="m-5 p-4">
+                       <div class="col-md-8">
+                           {%if messages %}
+                       {%for messaga in messages%}
+                           <div class="alert alert-success">
+                               {{messaga}}
+                           </div>
+                       </div>
+
+                               {%endfor%}
+                           {%endif%}
                        {%block main_path%}
                         {{name}}
-                            <img src="{% static '/static_pic/shop/1.jpg'%}" alt="">
+                        whiis shit worked
+                            <img src="{% static '/shop/1 10.jpg' %}" alt="My image"/>
                             {%endblock%}
                    </div>
                </div>

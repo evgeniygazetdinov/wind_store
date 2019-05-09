@@ -19,8 +19,11 @@ def priticilar_product(request,id,slug):
     product = get_object_or_404(Products,id = id ,slug = slug,available = True)
     return render(request,'products/product.html',{'product':product})
 
-def check(request):
-    return HttpResponse("return this string")
 
-def base_page(request):
-    return HttpResponse("base string")
+
+def product_list_by_category(request,category,slug):
+    if category:
+        products = get_object_or_404(Products,category = category,slug = slug )
+        return render(request,'products/category.html',{'title':'категория',
+                                                        'category':category,
+                                                        'products':products})
