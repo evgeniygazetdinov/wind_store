@@ -1,23 +1,23 @@
-<head>
 
-</head>
 {% extends "shop/base.html"%}
 {% load crispy_forms_tags %}
 
 {% block title %}
         {{title}}
     {% endblock title %}
-    {% block main_path%}
-        <div class="mx-auto" style="width: 200px;">
-           <h5>регистрация нового пользователя</h5>
-    </div>
-     <div class="form-section">    
-        <form method="POST">
-            {% csrf_token%}
+        {% block main_path%}
+            <div class="mx-auto" style="width: 200px;">
+               <h5>регистрация нового пользователя</h5>
+        </div>
+         <div class="form-section">    
+            <form method="POST">
+                {% csrf_token%}
             {{form|crispy}}
             <button type= submit class = regist_button> зарегистрироваться</button>
         </form>
-    </div>
+<hr>
+уже зарегистрированы?<a href="{% url 'login' %}">войти</a>
+     </div>
 
 {% endblock main_path %}
 

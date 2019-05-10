@@ -2,12 +2,14 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import CustomUserRegistration
+from django.contrib.auth.decorators import login_required
 
-def show_user_profile(request):
-    return render(request,'user/profile.html')
+
+
 
 def show_current_bought(request):
     pass
+
 def register(request):
     if request.method == "POST":
             form = CustomUserRegistration(request.POST)
@@ -20,3 +22,7 @@ def register(request):
     else:
         form = CustomUserRegistration()
     return render(request,'user/registration.html',{'form':form ,'title':'регистрация пользователя'})
+
+@login_required
+def show_user_profile(request):
+    return render(request,'user/profile.html',{'title':'профиль пользователя'})

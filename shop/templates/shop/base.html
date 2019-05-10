@@ -20,15 +20,24 @@
           <body>
               <div class="container"> 
                   <nav aria-label="breadcrumb">
-                     <ol class="breadcrumb">
+
+                      <ol class="breadcrumb">
+                      
                         <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                         <li class="breadcrumb-item" ><a href="#">Data</a></li>
                         <li class="breadcrumb-item" ><a href="{% url 'list' %}">all</a></li>
                        <div class="col-md-8">
-                                <li class='breadcrumb-item-float-right-col-md-8-mr-5 ' ><a href="{% url 'reg' %}">registation</a></li>
-                                        <li class='breadcrumb-item-float-right ' ><a href="{% url 'reg' %}">log out</a></li>
-                                    </div>     
-                                  </div>
+                           {% if user.is_authenticated %}
+                           <li class='breadcrumb-item-float-right-col-md-8-mr-5 ' ><a href="{% url 'profile' %}">Profile</a></li>
+                            <li class='my-md-6 ' ><a href="{% url 'exit' %}">logout</a></li>
+                           
+                            {% else %}
+                           <li class='breadcrumb-item-float-right-col-md-8-mr-5 ' ><a href="{% url 'reg' %}">registation</a></li>
+                            <li class='my-md-6 ' ><a href="{% url 'login' %}">login</a></li>
+                            {% endif %}
+                                        </div>     
+                                  
+                                </div>
                                   </div>
                     </ol>
                     </nav>

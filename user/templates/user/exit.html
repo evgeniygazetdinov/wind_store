@@ -5,8 +5,7 @@
     {% endblock title %}
     
     {% block main_path%}
-    <div class="form-section">
-        <h2> hi {{request.user.username}}</h2>    
-    </div>
+     <h5>Вы успешно вышли!</h5>
+     <a href="{% url 'login'%}">войти снова</a>
     {% endblock main_path %}
 
