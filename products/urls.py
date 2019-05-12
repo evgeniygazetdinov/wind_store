@@ -20,7 +20,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('list/',views.show_product_list,name = 'list'),
-    path(r'^list/(?P<id>/?P<slug>/',views.priticilar_product,name = 'products')
+    path(r'^list/(?P<id>/?P<slug>/',views.priticilar_product,name = 'products'),
+    path(r'^<category>/<slug>',views.product_list_by_category,name='category')
 ]
 #if settings.DEBUG:
 #   urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

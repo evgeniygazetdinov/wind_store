@@ -1,0 +1,17 @@
+{% extends "shop/base.html"%}
+{%load crispy_forms_tags %}
+    {% block title %}
+        {{title}}
+    {% endblock title %}
+    
+    {% block main_path%}
+    <div class="form-section">
+        <h2> hi {{request.user.username}}</h2>    
+        <p><b>Последний раз был: </b> {{request.user.last_login}}</p>
+        <p><b>зарегистрирован </b> {{request.user.date_joined}}</p>
+       <img src="{{request.user.image.url}} " alt=""> 
+    
+    </div>
+    {% endblock main_path %}
+
+
