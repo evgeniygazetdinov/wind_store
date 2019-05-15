@@ -15,8 +15,11 @@ def show_product_list(request,category_slug = None):
                                                             'categories':categories,
                                                             'products':products})
 
-def priticilar_product(request,id,slug):
+def priticilar_product(request,id,slug,name):
     product = get_object_or_404(Products,id = id ,slug = slug,available = True)
+    if request.method ==" POST":
+        messages.success(request,'товар был добавлен в корзину'.format(name))
+
     return render(request,'products/product.html',{'product':product})
 
 

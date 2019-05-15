@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from carton.cart import Cart
-from products.model import Luggage as Product
+from .carton.cart import Cart
+import sys
+sys.path.append("..")
+
+from products.models  import Luggage as Product
 
 
 
@@ -21,4 +24,4 @@ def remove(request):
 
 
 def show(request):
-    return render(request,'cart/basket.html')
+    return render(request,'goods_trolley/basket.html')

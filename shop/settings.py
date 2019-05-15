@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'shop',
     'products.apps.ProductsConfig',
+    'carton',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -119,3 +120,5 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL='home'
 LOGIN_URL = 'login'
+CART_PRODUCT_MODEL = 'products.models.Product'
+

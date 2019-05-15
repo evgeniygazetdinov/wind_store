@@ -1,9 +1,9 @@
-from django.conf import path
+from django.urls import include, path
 from . import views
 
-urlpatterns = patterns(
-        path('/add',views.add, name = 'add'),
-        path('/remove',views.remove, name = 'remove'),
-        path('/show',views.show, name = 'show'),
-)
+urlpatterns = [
+        path('add/',views.add, name = 'add'),
+        path('remove/',views.remove, name = 'remove'),
+        path('show/',views.show,name = 'show_cart'),
+]
 

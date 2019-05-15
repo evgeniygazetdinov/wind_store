@@ -1,6 +1,7 @@
 import datetime
+from django.contrib.sessions.backends.db import SessionStore
 
-from . import models
+from .. import models
 
 CART_ID = 'CART-ID'
 

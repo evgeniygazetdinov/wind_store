@@ -4,12 +4,12 @@
             {{product.name}}
         {% endblock %}
         {%block main_path %}
-        <form>
+        <form method = "POST">
                 <div class="product_detail">
             <div class="container">
                 <img src="{{product.image.url}}"alt="">
                 <p class="price">${{product.price}}</p>
-                    <input type="submit" value = "Добавить в корзину">
+                    <a href="{% url 'add'%}"></a>
                 </form>
                 {{product.description|linebreaks}}
             </div>
