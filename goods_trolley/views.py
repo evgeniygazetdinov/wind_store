@@ -8,6 +8,10 @@ sys.path.append("..")
 from products.models  import Luggage as Product
 
 
+def return_cart_items():
+    pass
+
+
 
 def add(request):
     cart = Cart(request.session)
