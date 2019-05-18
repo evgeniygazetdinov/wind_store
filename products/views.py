@@ -1,6 +1,10 @@
-from django.shortcuts import render,HttpResponse,get_object_or_404
+from django.shortcuts import render,HttpResponse,get_object_or_404,get_list_or_404,render_to_response
 from .models import Category
 from .models import Luggage as Products
+from django.template import RequestContext
+from django.contrib import messages
+
+
 
 
 def show_product_list(request,category_slug = None):
@@ -15,18 +19,16 @@ def show_product_list(request,category_slug = None):
                                                             'categories':categories,
                                                             'products':products})
 
-def priticilar_product(request,id,slug,name):
+def priticilar_product(request,id,slug):
     product = get_object_or_404(Products,id = id ,slug = slug,available = True)
-    if request.method ==" POST":
-        messages.success(request,'товар был добавлен в корзину'.format(name))
-
+    print(product)
     return render(request,'products/product.html',{'product':product})
 
 
-
-def product_list_by_category(request,category,slug):
-    if category:
-        products = get_object_or_404(Products,category = category,slug = slug )
+def product_list_by_category(request,slug):
+        category = Category.objects.all().filter(slug)
+        x = []
+        for i in range(len(category)):
+            x.append(new[i][slug])
         return render(request,'products/category.html',{'title':'категория',
-                                                        'category':category,
-                                                        'products':products})
+                                                        'c':x})
