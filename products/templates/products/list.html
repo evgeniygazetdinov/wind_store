@@ -2,46 +2,45 @@
 {% load static %}
     {% block title %}
         {{title}}
-    {% endblock title %}
-    
+    {% endblock title %}  
     {% block main_path%}
     <div class="slidebar">
         <h3>Categories</h3>
-        <ul>
-            <li>{% if not category %} {% endif %}>
-                    <a href="{% url 'list' %}">All</a>
-            </li>
-        {% for c in categories %}
-        <li>
-            {% if category.slug == c.slug %} class = "selected"{% endif %}>
-            <a href="{{c.get_absolute_url}}">{{c.name}}</a>
-        </li>
-        {%endfor%}
-        </ul>
-    </div>
-        <div class="mx-auto w-25">    
-            <p>available products</p>
-        </div>
-    {% for product in products %}
-            <div class="mt-4">
-                    категория 
-                    <b>{{product.category}}</b>
-                <div class="product">
-                    {{product.name}}
-
-
-                </div>
+            <ul>
+                <li>{% if not category %} {% endif %}>
+                    <a href="{% url  'list' %}">All</a>
+                </li>
+            {% for c in categories %}
+                <li>
+                {% if category.slug == c.slug %} class = "selected"{% endif %}>
+                    <a href="{{c.get_absolute_url}}">{{c.name}}</a>
+                </li>
+                {%endfor%}
+                </ul>
             </div>
-                  <div class="logo">
-                      <img src="{{product.image.url}}">        
-                  </div>
-                <div class="mr-4">
-                    {{product.price}}
-
+            <div class="mx-auto w-25">    
+                <p>available products</p>
+            </div>
+            {% for product in products %}
+                <div class="mt-4">
+                    <p>категория</p>
+                        <b>{{prproduct.category}}</b>
+                        <div class="product">
+                            {{product.name}}
+                        </div>
                 </div>
-                <a href="{{product.get_absolute_url}}"  target = _blank
-                    <button class="btn btn-warning">подробнее</button>
-                </a>
-                <hr>
-                        {% endfor %}
-{% endblock main_path %}
+                      <div class="mx-auto w-25">
+                          <img class="mr-2 rounded" src="{{product.image.url}}"style="width:500px;height:400px;">        
+                      </div>
+                    <div class="mr-4">
+                        {{product.price}}
+                    </div>
+                        <a href="{{product.get_absolute_url}}"  target = _blank
+                            <button class="btn btn-warning">подробнее</button>
+                        </a>
+                            <hr>
+                            {% endfor %}
+        {% endblock main_path %}
+
+
+

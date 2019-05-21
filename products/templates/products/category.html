@@ -1,14 +1,18 @@
 {% extends "shop/base.html" %}
     {% load static %}
         {% block title %}
-            {{product.name}}
+            {{title}}
         {% endblock %}
-        {%block main_path %}
-            <p>{{category.name}}</p>
-        {%for product in products%}
-                {{product.name}}
-                <img src="{% if product.image %}{{product.image.url}}{% else %}{% static "shop/1.jpg" %}{% endif %}alt="">
-                {{product.price}}
+            {%block main_path %}
+                <div class="container">
+                    <div class="column">
+                        <div class="mr-3">
+                            <p>products</p>
+                                {%for pr in products%}
+                                    {{pr.name}}
+                                    <img class="mr-2 rounded" src="{{product.image.url}}"style="width:500px;height:400px;">        
+                                {% endfor %} 
+                        </div>
+                    </div>
                 </div>
-        </div>
         {% endblock main_path %}

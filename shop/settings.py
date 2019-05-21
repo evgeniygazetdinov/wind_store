@@ -1,38 +1,25 @@
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'r=nrc5s9mg8mnz-3l2sz9s=4010uyv_h$w-(&6e7t%26izqpo*'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
 INSTALLED_APPS = [
-    'goods_trolley.apps.GoodsTrolleyConfig',
+    'wind_cart.apps.WindCartConfig',
     'crispy_forms',
     'user.apps.UserConfig',
     'shop',
     'products.apps.ProductsConfig',
-    'carton',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 ]
-
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,4 +108,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL='home'
 LOGIN_URL = 'login'
 CART_PRODUCT_MODEL = 'products.models.Product'
-
+CART_SESSION_ID = 'cart'

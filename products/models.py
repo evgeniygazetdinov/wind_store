@@ -15,12 +15,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return ('/category/{}'.format(self.slug))
-
-
-
-
-
+        return '{}/'.format(self.slug)
 class Luggage(models.Model):
 
     category = models.ForeignKey(Category,related_name='категория',on_delete=models.CASCADE)
@@ -43,5 +38,4 @@ class Luggage(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('products',kwargs = {'id':self.id,
-                                            'slug':self.slug})
+        return '{}/{}/'.format(self.id,self.slug)
