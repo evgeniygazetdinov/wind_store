@@ -6,7 +6,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    'wind_cart.apps.WindCartConfig',
+    'wind_cart',
     'crispy_forms',
     'user.apps.UserConfig',
     'shop',

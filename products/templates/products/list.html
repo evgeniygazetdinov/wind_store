@@ -12,7 +12,7 @@
                 </li>
             {% for c in categories %}
                 <li>
-                {% if category.slug == c.slug %} class = "selected"{% endif %}>
+                {% if category.slug == c.slug %} {% endif %}
                     <a href="{{c.get_absolute_url}}">{{c.name}}</a>
                 </li>
                 {%endfor%}
