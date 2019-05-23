@@ -1,0 +1,22 @@
+{% extends "shop/base.html"%}
+
+    {% block title %}
+        {{title}}
+    {% endblock title %}
+    {% block main_path%}
+    <div class="container">
+        <div class="row">
+            <div class="column">
+        <form action = "{% url "cart:CartAdd" product.id %}"method="POST" class = "add">
+                {{item.update_quntity_form.quantity}}    
+                {{item.update_quntity_form.update}} 
+                        {% csrf_token%}
+               <input type="submit" value = "Обновить">
+        
+        </form>
+    </div>
+        </div>
+            </div>
+
+{% endblock main_path %}
+

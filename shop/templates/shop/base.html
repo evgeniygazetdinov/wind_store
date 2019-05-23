@@ -1,36 +1,37 @@
 <!doctype html>
 {% load static %}
 {% load staticfiles %}
+
 <html lang="en">
   <head>
       <script src="http://userapi.com/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel=”stylesheet” href=”{% static 'shop/main.css' %}”>
-    <title>
-      {% block title %}
-      {%  endblock %}
-  </title>
-  </head>
-  
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                    <link rel=”stylesheet” href=”{% static 'shop/main.css' %}”>
+                        <title>
+                          {% block title %}
+                          {%  endblock %}
+                          </title>
+    </head>
+
           <body>
               <div class="container"> 
                   <nav aria-label="breadcrumb">
 
                       <ol class="breadcrumb">
                       
-                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                        <li class="breadcrumb-item" ><a href="#">Data</a></li>
-                        <li class="breadcrumb-item" ><a href="{% url 'list' %}">all</a></li>
-                       <div class="col-md-8">
-                           {% if user.is_authenticated %}
-                           <li class='breadcrumb-item-float-right-col-md-8-mr-5 ' ><a href="{% url 'profile' %}">Profile</a></li>
-                            <li class='my-md-6 ' ><a href="{% url 'exit' %}">logout</a></li>
-                           
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item" ><a href="#">Data</a></li>
+                            <li class="breadcrumb-item" ><a href="{% url 'list' %}">all</a></li>
+                               <div class="col-md-8">
+                                   {% if user.is_authenticated %}
+                                       <li class='breadcrumb-item-float-right-col-md-8-mr-5 ' ><a href="{% url 'profile' %}">Profile</a></li>
+                                       <li class='my-md-6 ' ><a href="{% url 'exit' %}">logout</a></li>
+                                    
+                                       <li class='my-md-6 ' ><a href="{% url 'show_cart_items' %}">purchases in cart </a></li>
+                            
                             {% else %}
                            <li class='breadcrumb-item-float-right-col-md-8-mr-5 ' ><a href="{% url 'reg' %}">registation</a></li>
                             <li class='my-md-6 ' ><a href="{% url 'login' %}">login</a></li>
@@ -57,10 +58,20 @@
                                {%endfor%}
                            {%endif%}
                        {%block main_path%}
-                        {{name}}
-                        whiis shit worked
-                            <img src="{% static '/shop/1 10.jpg' %}" alt="My image"/>
-                            {%endblock%}
+                        <p>{{t_now}}</p>
+                        <form method = "POST" >
+                        <input type="text",id = "skull" name = "ksiva" >
+                        <br>
+                        <input type="text",id = "profession"name = "prof">
+                        <br>
+                        <input type="text",id = "plac"name ="hata">
+                        <br>
+                        <input type = "submit">post</button>
+                       {%csrf_token%} 
+                        </form>    
+                        
+                        
+                        {%endblock%}
                    </div>
                </div>
 

@@ -18,10 +18,11 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+
 urlpatterns = [
     path('list/',views.show_product_list,name = 'list'),
-    path(r'^list/(?P<id>/?P<slug>/',views.priticilar_product,name = 'products'),
-    path(r'^<category>/<slug>',views.product_list_by_category,name='category')
+    path(r'^list/<category_slug>/',views.show_product_list,name = 'category'),
+    path('list/<id>/<slug>/',views.priticilar_product,name = 'prit_prod'),
 ]
-#if settings.DEBUG:
-#   urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+

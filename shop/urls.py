@@ -8,6 +8,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.show_home_page,name = "home"),
     path('products/',include('products.urls')),
-    path('user/',include('user.urls'))
+    path('user/',include('user.urls')),
+    path('cart/',include('wind_cart.urls')),
+
+
+
 ]+static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
 

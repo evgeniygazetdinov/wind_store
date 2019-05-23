@@ -1,0 +1,61 @@
+{% extends "shop/base.html"%}
+
+    {% block title %}
+        {{title}}
+    {% endblock title %}
+    {% block main_path%}
+    <div class="container">
+        <div class="row">
+            <div class="column">
+        <h3>корзина товаров</h3>
+            <table class="cart">
+                <thead>
+                    <tr>
+                        <td>изображение</td>
+                        <td>продукт</td>
+                        <td>количество</td>
+                        <td>удалить</td>
+                        <td>цена</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart %}
+                        {% with product=item.product %}
+                            <tr>
+                                <td>
+                                    <a href="{{product.get_absolute_url}}">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </td>
+                                <td>{{product.name}}</td>
+                                <td>{{item.quantity}}</td>
+                                <td><a href="{% url "cart:CartRemove" product.id %}">удалить</a></td>
+                                <td class=num>{{item.price}} руб.</td>
+                                <td>{{item.total_price}}руб.</td>
+                            </tr>
+                        {% endwith %}
+                    {% endfor %}
+                        {% if cart.get_total_price == 0%}
+                            <tr class="total">
+                                <td>нет товаров</td>
+                            </tr>
+                                {% else %}
+                            <tr class="total">
+                                <td>Итого</td>
+                                <td colspan=4></td>
+                            <td class="num">{{cart.get_total_price}}</td>
+                            </tr>
+                                {% endif %}
+                </tbody>
+            </table>
+        <p class="text-right">
+            <a href="{% url "list" %}"class ="btn btn-warning">продолжить шопинг</a>
+            <a href="">оформить заказ</a>
+        </p>
+
+    </div>
+        </div>
+            </div>
+
+{% endblock main_path %}
+

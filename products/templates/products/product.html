@@ -4,14 +4,20 @@
             {{product.name}}
         {% endblock %}
         {%block main_path %}
-        <form>
-                <div class="product_detail">
             <div class="container">
-                <img src="{{product.image.url}}"alt="">
-                <p class="price">${{product.price}}</p>
-                    <input type="submit" value = "Добавить в корзину">
-                </form>
-                {{product.description|linebreaks}}
-            </div>
-        </div>
+                <a class="btn btn-lg btn-primary" href="{% url "list" %}" role="button">Back to list</a>
+                    <img class="mr-2 rounded" src="{{product.image.url}}"style="width:500px;height:400px;">        
+                        <p class="price">${{product.price}}</p>
+                            <form method = "POST">
+                                <div class="product_detail">
+                                    <div class="container">
+                                    <a href="{% url 'add_to_cart'%}">
+                                        {% csrf_token %}
+                                        <button class = "btn btn-warning"type = "submit">добавить в корзину
+                                </button>
+                                </a>
+                            </form>
+                            {{product.description|linebreaks}}
+                        </div>
+                </div>
         {% endblock main_path %}
