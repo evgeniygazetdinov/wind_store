@@ -8,16 +8,11 @@
                 <a class="btn btn-lg btn-primary" href="{% url "list" %}" role="button">Back to list</a>
                     <img class="mr-2 rounded" src="{{product.image.url}}"style="width:500px;height:400px;">        
                         <p class="price">${{product.price}}</p>
-                            <form method = "POST">
-                                <div class="product_detail">
-                                    <div class="container">
-                                    <a href="{% url 'add_to_cart'%}">
-                                        {% csrf_token %}
-                                        <button class = "btn btn-warning"type = "submit">добавить в корзину
-                                </button>
-                                </a>
-                            </form>
-                            {{product.description|linebreaks}}
+                             <form action="{% url "cart_add" product.id %}" method="post">
+     {{ cart_product_form }}
+     {% csrf_token %}
+     <input type="submit" value="Add to cart">
+</form>                            {{product.description|linebreaks}}
                         </div>
                 </div>
         {% endblock main_path %}

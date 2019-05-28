@@ -3,8 +3,7 @@ from .models import Category
 from .models import Luggage as Products
 from django.template import RequestContext
 from django.contrib import messages
-
-
+from wind_cart.forms import CartAddProductForm
 
 def show_product_list(request, category_slug=None):
     category = None
@@ -22,5 +21,7 @@ def show_product_list(request, category_slug=None):
 
 def priticilar_product(request,id,slug):
     product = get_object_or_404(Products,id = id ,slug = slug,available = True)
-    return render(request,'products/product.html',{'product':product})
+    cart_product_form = CartAddProductForm()
+    return render(request,'products/product.html',{'product':product,
+                                                   'cart_product_form':cart_product_form})
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.decorators.http import require_POST
 from products.models import Luggage as Product
-from .cart import Cart
+from .wind_cart import Cart
 from .forms import CartAddProductForm
 
 
@@ -9,6 +9,7 @@ from .forms import CartAddProductForm
 def CartAdd(request,product_id):
     cart = Cart(request)
     product = get_object_or_404(Product,id = product_id)
+    #this form it's interpritation models with 2-entry which take only requered-post-request
     form = CartAddProductForm(request.POST)
     if form.is_vaild():
         cd = form.cleaned_data
