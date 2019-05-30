@@ -11,17 +11,18 @@ def CartAdd(request,product_id):
     product = get_object_or_404(Product,id = product_id)
     #this form it's interpritation models with 2-entry which take only requered-post-request
     form = CartAddProductForm(request.POST)
-    if form.is_vaild():
+    print(form)
+    if form.is_valid():
         cd = form.cleaned_data
         cart.add(product = product, quantity = cd['quantity'],
                  update_quantity = cd['update'])
-    return redirect('cart:CartDetail')
+    return redirect('show_cart_items')
 
 def CartRemove(request,product_id):
     cart = Cart(request)
     product = get_object_or_404(Product,id = product_id)
     cart.remove(product)
-    return redirect('cart:CartDatail')
+    return redirect('show_cart_items')
 
 def CartDetail(request):
     cart = Cart(request)
