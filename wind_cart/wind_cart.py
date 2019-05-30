@@ -44,7 +44,7 @@ class Cart(object):
         products_ids = self.cart.keys()
         products = Products.objects.filter(id__in = products_ids)
         for product in products:
-            self.cart[str[product.id]]['product'] = product
+            self.cart[str(product.id)]['product'] = product
         for item in self.cart.values():
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
