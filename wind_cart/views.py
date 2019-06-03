@@ -15,6 +15,7 @@ def CartAdd(request,product_id):
         cd = form.cleaned_data
         cart.add(product = product, quantity = cd['quantity'],
                  update_quantity = cd['update'])
+        print(form)
     return redirect('show_cart_items')
 
 def CartRemove(request,product_id):
@@ -24,14 +25,16 @@ def CartRemove(request,product_id):
     return redirect('show_cart_items')
 
 def CartDetail(request):
-    art = Cart(request)
-    for item in art:
+    # fix views for displayed
+    cart = Cart(request)
+    print(cart.cart)
+    for item in cart:
         item['update_quantity_form'] = CartAddProductForm(
                                         initial = {
                                             'quantity':item['quantity'],
                                             'update':True
                                         })
-    return render(request,'wind_cart/detail.html',{'art':art})
+    return render(request,'wind_cart/detail.html',{'cart':cart})
 
 
 

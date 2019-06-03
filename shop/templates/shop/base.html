@@ -58,20 +58,9 @@
                                {%endfor%}
                            {%endif%}
                        {%block main_path%}
-                        <p>{{t_now}}</p>
-                        <form method = "POST" >
-                        <input type="text",id = "skull" name = "ksiva" >
-                        <br>
-                        <input type="text",id = "profession"name = "prof">
-                        <br>
-                        <input type="text",id = "plac"name ="hata">
-                        <br>
-                        <input type = "submit">post</button>
-                       {%csrf_token%} 
-                        </form>    
-                        
-                        
-                        {%endblock%}
+                       <p>{{n}}</p>
+                       {%endblock%}
+
                    </div>
                </div>
 

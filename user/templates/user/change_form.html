@@ -1,0 +1,40 @@
+{% extends "shop/base.html"%}
+
+    {% block title %}
+        {{title}}
+    {% endblock title %}
+    {% block main_path%}
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <form method = "POST" enctype = "multipart/form-data" >
+                            <tr>
+                                <td>adress : </td>
+                            </tr>
+                            <br>
+                           <tr>
+                               <td><input type="text",id = "place" name = "adress"></td>
+                           </tr>
+                           <br>
+                            <tr>
+                                <td>about you : </td>
+                            </tr>
+                            <br>
+                           <tr>
+                               <td><input type="text",id = "special" name = "name"></td>
+                           </tr>
+                          <br>
+                                   <input id="id_image",type ="file" class =""name = "image">
+                          <br>
+                          <br>
+                               <input type = "submit" value = "change">
+                           {%csrf_token%} 
+
+                </form>    
+
+            </div>
+        </div>
+            </div>
+
+{% endblock main_path %}
+

@@ -8,15 +8,20 @@
         <h3>Categories</h3>
             <ul>
                 <li>{% if not category %} {% endif %}>
-                    <a href="{% url  'list' %}">All</a>
+                    <a href="{% url  'list' %}">Goods</a>
                 </li>
             {% for c in categories %}
                 <li>
                 {% if category.slug == c.slug %} {% endif %}
                     <a href="{{c.get_absolute_url}}">{{c.name}}</a>
+                    {%if c.name == shuba %}
+
+                    {% endif %}
+
                 </li>
+ 
                 {%endfor%}
-                </ul>
+            </ul>
             </div>
             <div class="mx-auto w-25">    
                 <p>available products</p>
