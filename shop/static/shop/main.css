@@ -26,3 +26,9 @@ body{
     color:#b38a22;
     margin-bottom:10px;
 }
+      .container-fluid{
+    height: 150px;
+
+    background-color: #3BD975;
+}
+

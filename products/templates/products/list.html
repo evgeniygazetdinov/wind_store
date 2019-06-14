@@ -5,33 +5,49 @@
     {% endblock title %}  
     {% block main_path%}
     <div class="slidebar">
-        <h3>Categories</h3>
-            <ul>
-                <li>{% if not category %} {% endif %}>
-                    <a href="{% url  'list' %}">Goods</a>
-                </li>
-            {% for c in categories %}
-                <li>
-                {% if category.slug == c.slug %} {% endif %}
-                    <a href="{{c.get_absolute_url}}">{{c.name}}</a>
-                    {%if c.name == shuba %}
-
-                    {% endif %}
-
-                </li>
- 
-                {%endfor%}
-            </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                            <h2>Categories</h2>
+                        <div>
+                    </div>
+                </div>
             </div>
-            <div class="mx-auto w-25">    
-                <p>available products</p>
+        </div>
+    </div>
+<div class="container">
+        <div class="row">
+                <div class="col-md-4">
+                        <ul>
+                            <li>{% if not category %} {% endif %}
+                                <a href="{% url  'list' %}">Goods</a>
+                            </li>
+                                {% for c in categories %}
+                            <li>
+                                {% if category.slug == c.slug %} {% endif %}
+                                    <a href="{{c.get_absolute_url}}">{{c.name}}</a>
+                                                
+                                                </li>
+                                                {%endfor%}
+
+                         </ul>
+                </div>
+        </div>
+<div>
+    <div class="row">
+            <div class="col-md-4">    
+                <h2>available products</h2>
             </div>
-            {% for product in products %}
-                <div class="mt-4">
-                    <p>категория</p>
-                        <b>{{prproduct.category}}</b>
-                        <div class="product">
-                            {{product.name}}
+    </div>
+                {% for product in products %}
+                <div class="row">
+                    <div class="col-md-1 col-md-3-offset-4">
+                        <h4>category</h4>
+                            <h6>{{product.category}}</h6>
+                    </div>
+                     <!----  <div class="product">
+                            <h6>{{product.name}}</h6>
                         </div>
                 </div>
                       <div class="mx-auto w-25">
@@ -45,7 +61,7 @@
                         </a>
                             <hr>
                             {% endfor %}
-        {% endblock main_path %}
+                            {% endblock main_path %} ------>
 
 
 
