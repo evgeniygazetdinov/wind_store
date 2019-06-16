@@ -1,18 +1,25 @@
 {% extends "shop/base.html" %}
-    {% load static %}
-        {% block title %}
-            {{product.name}}
-        {% endblock %}
-        {%block main_path %}
-            <div class="container">
-                <a class="btn btn-lg btn-primary" href="{% url "list" %}" role="button">Back to list</a>
-                    <img class="mr-2 rounded" src="{{product.image.url}}"style="width:500px;height:400px;">        
-                        <p class="price">${{product.price}}</p>
-                             <form action="{% url "cart_add" product.id %}" method="post">
-     {{ cart_product_form }}
-     {% csrf_token %}
+{% load static %}
+{% block title %}
+{{product.name}}
+{% endblock %}
+{%block main_path %}
+<div class="container">
+    <div class="col-md-2">
+        <a class="btn btn-primary" href="{% url "list" %}" role="button">Back to list</a>
+    </div>
+           
+     <div class="row">
+         <div class="col-md-4 col-md-4 offset-2">
+             <img class="mr-2 rounded" src="{{product.image.url}}" style="width:500x;height:400px;">  
+         </div>
+     </div>
+   {{product.description|linebreaks}}
+<form action="{% url "cart_add" product.id %}" method="post">
+         {{ cart_product_form }}
+                {% csrf_token %}
+         <p class="price">${{product.price}}</p> 
+          
      <input type="submit" value="Add to cart">
-</form>                            {{product.description|linebreaks}}
-                        </div>
-                </div>
-        {% endblock main_path %}
+      </form>
+   {% endblock main_path %}
