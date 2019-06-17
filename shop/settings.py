@@ -1,4 +1,6 @@
 import os
+from .auth_vk import SOCIAL_AUTH_VK_OAUTH2_KEY,SOCIAL_AUTH_VK_OAUTH2_SECRET
+from .auth_facebook import SOCIAL_AUTH_FACEBOOK_OAUTH2_KEY,SOCIAL_AUTH_FACEBOOK_OAUTH2_SECRET
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'r=nrc5s9mg8mnz-3l2sz9s=4010uyv_h$w-(&6e7t%26izqpo*'
@@ -18,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'social_django',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
@@ -32,6 +35,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'shop.urls'
 #TEMPLATE_DIR =  os.path.join(os.path.dirname(__file__) ,'../templates').replace('\\','/')
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2',          # бекенд авторизации через ВКонтакте
+    'django.contrib.auth.backends.ModelBackend', # бекенд классической аутентификации, чтобы работала авторизация через обычный логин и пароль
+)
+
+
 
 TEMPLATES = [
     {
@@ -44,12 +53,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'shop.wsgi.application'
+
 
 
 # Database
@@ -109,3 +120,7 @@ LOGIN_REDIRECT_URL='home'
 LOGIN_URL = 'login'
 CART_PRODUCT_MODEL = 'products.models.Product'
 CART_SESSION_ID = 'cart'
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
+SOCIAL_AUTH_VK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name, email'
+}

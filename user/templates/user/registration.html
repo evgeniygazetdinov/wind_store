@@ -1,7 +1,7 @@
 
 {% extends "shop/base.html"%}
 {% load crispy_forms_tags %}
-
+{% load i18n %}
 {% block title %}
         {{title}}
     {% endblock title %}
@@ -17,7 +17,9 @@
         </form>
 <hr>
 уже зарегистрированы?<a href="{% url 'login' %}">войти</a>
+   
+    <a href="/login/vk-oauth2"><img src="/static/lvk.png" class="avatar-3" data-toggle="tooltip" title="{% trans 'Login via VKontakte' %}"></a>
+<a href="https://www.facebook.com/dialog/oauth/{{key}}/"><img src="/static/lfb.png" class="avatar-3" data-toggle="tooltip" title="{% trans 'Login via Facebook' %}"></a>
      </div>
-
 {% endblock main_path %}
 

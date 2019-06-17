@@ -4,6 +4,10 @@ from django.contrib import messages
 from .forms import CustomUserRegistration,UploadFileForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from shop.settings  import SOCIAL_AUTH_FACEBOOK_OAUTH2_KEY, SOCIAL_AUTH_FACEBOOK_OAUTH2_SECRET
+
+
+
 
 
 def register(request):
@@ -17,7 +21,7 @@ def register(request):
                 return redirect('home')
     else:
         form = CustomUserRegistration()
-    return render(request,'user/registration.html',{'form':form ,'title':'регистрация пользователя'})
+    return render(request,'user/registration.html',{'form':form ,'title':'регистрация пользователя','key':SOCIAL_AUTH_FACEBOOK_OAUTH2_KEY,'secret':SOCIAL_AUTH_FACEBOOK_OAUTH2_SECRET})
 
 @login_required
 def show_user_profile(request):
